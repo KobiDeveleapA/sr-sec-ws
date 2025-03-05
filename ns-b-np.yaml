@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-from-namespace-a
+  namespace: namespace-b
+spec:
+  podSelector: {}  # Applies to all pods in namespace-b
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector: {}  # Allow traffic from pods within namespace-b
+    # No namespaceSelector for namespace-a, which means traffic from namespace-a is denied
