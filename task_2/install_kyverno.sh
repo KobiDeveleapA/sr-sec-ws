@@ -8,4 +8,4 @@ helm repo update
 helm install kyverno kyverno/kyverno
 
 echo -e "${YELLOW}=== Waiting for Kyverno pods to be ready ===${NC}"
-kubectl wait --for=condition=ready pod -l app.kubernetes.io/name=kyverno -n kyverno --timeout=120s
+kubectl wait --for=condition=ready pod -l app.kubernetes.io/name=kyverno --timeout=120s
